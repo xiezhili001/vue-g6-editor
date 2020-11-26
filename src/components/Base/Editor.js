@@ -24,6 +24,9 @@ export default class Editor {
   add(type, item) {
     this.graph.add(type, item)
   }
+  read(item) {
+    this.graph.read(item)
+  }
   update(item, model) {
     console.log(item);
     console.log(model);

@@ -85,6 +85,7 @@
     ></i>
     <i data-command="unGroup" class="command iconfont icon-ungroup disable" title="解组"></i>
     <el-button @click="consoleData" type="primary">控制台输出数据</el-button>
+    <el-button @click="aaa" type="primary">aaa</el-button>
   </div>
 </template>
 
@@ -124,6 +125,10 @@ export default {
       const { editor, command } = this.$parent;
       this.editor = editor;
       this.command = command;
+    },
+    aaa(){
+      console.log(this.editor);
+      this.editor.read(JSON.parse('{"nodes":[{"name":"大型节点","label":"大型节点","size":["340","34"],"type":"node","x":447,"y":280,"shape":"customNode","color":"#1890ff","image":"https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg","stateImage":"/static/img/ok.463ab0e4.svg","inPoints":[[0,0.5]],"outPoints":[[1,0.5]],"offsetX":71,"offsetY":14,"id":"node2"},{"name":"动画开始节点","label":"动画开始","size":["170","34"],"type":"node","x":476,"y":445,"shape":"customNode","color":"#1890ff","image":"https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg","stateImage":"/static/img/ok.463ab0e4.svg","inPoints":[[0,0.5]],"outPoints":[[1,0.5]],"isDoingStart":true,"offsetX":74,"offsetY":11,"id":"node9"}],"edges":[{"id":"edge32","source":"node2","target":"node9","sourceId":"node2","targetId":"node9","start":{"x":0,"y":17},"end":{"x":0,"y":-17},"shape":"customEdge","type":"edge","startPoint":{"x":450.07575757575756,"y":297.5},"endPoint":{"x":472.92424242424244,"y":427.5}}],"groups":[]}'))
     },
     bindEvent() {
       let self = this;
