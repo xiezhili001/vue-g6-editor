@@ -37,7 +37,7 @@ export default {
           x: 0,
           y: 0,
           shape: "customNode",
-          color: "#1890ff",
+          color: "red",
           image:
             "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
           stateImage: okSvg,
@@ -48,12 +48,12 @@ export default {
         {
           name: "背景图片节点",
           label: "背景图片节点",
-          size: "170*34",
+          size: "170*60",
           type: "node",
           x: 0,
           y: 0,
           shape: "customNode",
-          color: "#1890ff",
+          color: "red",
           image:
             "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
           stateImage: okSvg,

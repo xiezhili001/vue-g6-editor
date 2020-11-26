@@ -18,7 +18,7 @@ export default {
         switch (code) {
             case this.deleteKeyCode:
             case this.backKeyCode:
-                // eventBus.$emit('deleteItem')
+                eventBus.$emit('deleteItem')
                 break
         }
     },

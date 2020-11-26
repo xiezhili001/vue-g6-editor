@@ -240,7 +240,7 @@ export default {
       // this.selectedItem.forEach(item => {
       //   console.log(item);
       // });
-  
+
       //this.getPosition(this.selectedItem);
     },
     getPosition(items) {
@@ -299,6 +299,7 @@ export default {
 
     consoleData() {
       console.log(this.graph.save());
+      console.log(JSON.stringify(this.graph.save()));
     }
   }
 };
