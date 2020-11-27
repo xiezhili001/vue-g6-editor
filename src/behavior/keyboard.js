@@ -17,8 +17,9 @@ export default {
         const code = e.keyCode || e.which;
         switch (code) {
             case this.deleteKeyCode:
-            case this.backKeyCode:
                 eventBus.$emit('deleteItem')
+                break
+            case this.backKeyCode:
                 break
         }
     },
