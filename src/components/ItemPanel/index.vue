@@ -30,6 +30,7 @@ export default {
 
 <style scoped>
 .itempannel {
+  overflow: auto;
   height: 100%;
   position: absolute;
   left: 0px;
