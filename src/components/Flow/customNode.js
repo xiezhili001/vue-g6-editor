@@ -87,7 +87,7 @@ const customNode = {
             attrs: {
               id: 'label' + uniqueId(),
               x: offsetX + width / 2,
-              y: offsetY + height / 2,
+              y: offsetY + height + 15,
               textAlign: "center",
               textBaseline: "middle",
               text: cfg.label,
