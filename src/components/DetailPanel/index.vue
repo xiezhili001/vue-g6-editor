@@ -22,6 +22,19 @@
           <el-checkbox v-model="showGrid" @change="changeGridState">网格对齐</el-checkbox>
         </div>
       </div>
+      <div v-if="status === 'edge-selected'" id="edge_detailpannel" class="pannel">
+        <div class="pannel-title">连线</div>
+        <div class="block-container">
+          <el-col :span="8">内容</el-col>
+          <el-col :span="16">
+            <el-input v-model="edge.label" @change="handleChange" />
+          </el-col>
+          <el-col :span="8">文字颜色</el-col>
+          <el-col :span="16">
+            <el-color-picker v-model="textColor" @change="handleChangeColor" />
+          </el-col>
+        </div>
+      </div>
       <!-- <div v-if="status==='group-selected'" class="pannel" id="node_detailpannel">
         <div class="pannel-title">群组详情</div>
         <div class="block-container">
@@ -52,6 +65,8 @@ export default {
       graph: {},
       item: {},
       node: {},
+      edge:{},
+      textColor: 'rgba(19, 206, 102, 0.8)',
       grid: null
     };
   },
@@ -71,6 +86,10 @@ export default {
             self.status = "node-selected";
             self.item = item.target;
             self.node = item.target.getModel();
+          } else if (item.select === true && item.target.getType() === "edge") {
+            self.status = "edge-selected";
+            self.item = item.target;
+            self.edge = item.target.getModel();
           } else {
             self.status = "canvas-selected";
             self.item = null;
@@ -93,6 +112,19 @@ export default {
       } else {
         this.graph.removePlugin(this.grid);
       }
+    },
+    handleChange(e) {
+      const model = {
+        label: e
+      };
+      console.log(model)
+      this.graph.update(this.item, model);
+    },
+    handleChangeColor(e) {
+      const model = {
+        textColor: e
+      };
+      this.graph.update(this.item, model);
     }
   }
 };

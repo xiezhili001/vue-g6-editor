@@ -115,6 +115,17 @@ const customEdge = {
             }
           }
         });
+        if (cfg.label) {
+          group.addShape('text', {
+            attrs: {
+              id: 'edgeText' + uniqueId(),
+              x: end.x - (end.x - start.x) / 2,
+              y: end.y - (end.y - start.y) / 2,
+              text: cfg.label,
+              fill: cfg.textColor ? cfg.textColor : '#000000'
+            }
+          })
+        }
         return keyShape
       },
       afterDraw(cfg, group) {
