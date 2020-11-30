@@ -42,7 +42,6 @@ export default {
 }
 .itempannel ul {
   padding: 0px;
-  padding-left: 16px;
 }
 .itempannel li {
   color: rgba(0, 0, 0, 0.65);

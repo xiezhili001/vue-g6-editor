@@ -29,37 +29,37 @@ const customNode = {
             radius: 4
           }
         });
-        group.addShape("rect", {
-          attrs: {
-            x: offsetX,
-            y: offsetY,
-            width: 4,
-            height: height,
-            fill: color,
-            parent: mainId,
-            radius: [4, 0, 0, 4]
-          }
-        });
-        group.addShape("image", {
-          attrs: {
-            x: offsetX + 16,
-            y: offsetY + 8,
-            width: 20,
-            height: 16,
-            img: cfg.image,
-            parent: mainId
-          }
-        });
-        group.addShape("image", {
-          attrs: {
-            x: offsetX + width - 32,
-            y: offsetY + 8,
-            width: 16,
-            height: 16,
-            parent: mainId,
-            img: cfg.stateImage
-          }
-        });
+        // group.addShape("rect", {
+        //   attrs: {
+        //     x: offsetX,
+        //     y: offsetY,
+        //     width: 4,
+        //     height: height,
+        //     fill: color,
+        //     parent: mainId,
+        //     radius: [4, 0, 0, 4]
+        //   }
+        // });
+        // group.addShape("image", {
+        //   attrs: {
+        //     x: offsetX + 16,
+        //     y: offsetY + 8,
+        //     width: 20,
+        //     height: 16,
+        //     img: cfg.image,
+        //     parent: mainId
+        //   }
+        // });
+        // group.addShape("image", {
+        //   attrs: {
+        //     x: offsetX + width - 32,
+        //     y: offsetY + 8,
+        //     width: 16,
+        //     height: 16,
+        //     parent: mainId,
+        //     img: cfg.stateImage
+        //   }
+        // });
         if(cfg.backImage){
           const clip = new Shape.Rect({
             attrs: {
@@ -77,6 +77,7 @@ const customNode = {
               y: offsetY,
               width: width,
               height: height,
+              cursor: "move",
               img: cfg.backImage,
               clip: clip
             }

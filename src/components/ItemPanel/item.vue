@@ -11,8 +11,8 @@
       @dragstart="handleDragstart"
       @dragend="handleDragEnd($event,item)"
     >
-      <span class="pannel-type-icon" :style="{background:'url('+item.image+')'}"></span>
-      {{item.name}}
+      <!-- <span class="pannel-type-icon" :style="{background:'url('+item.image+')'}"></span> -->
+      <img :src="item.backImage" alt="">
     </li>
   </ul>
 </template>
@@ -20,7 +20,8 @@
 <script>
 import eventBus from "@/utils/eventBus";
 import okSvg from "@/assets/icons/ok.svg";
-import bgImg from "@/assets/bg.jpg";
+import bgImg1 from "@/assets/bg.jpg";
+import bgImg2 from "@/assets/logo.png";
 export default {
   data() {
     return {
@@ -29,10 +30,10 @@ export default {
       offsetX: 0,
       offsetY: 0,
       list: [
-        {
-          name: "测试节点",
-          label: "测试节点",
-          size: "170*34",
+          {
+          name: "背景图片节点",
+          label: "背景图片节点",
+          size: "80*80",
           type: "node",
           x: 0,
           y: 0,
@@ -41,14 +42,14 @@ export default {
           image:
             "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
           stateImage: okSvg,
+          backImage: bgImg1,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]]
         },
-
         {
           name: "背景图片节点",
           label: "背景图片节点",
-          size: "170*60",
+          size: "80*80",
           type: "node",
           x: 0,
           y: 0,
@@ -57,73 +58,107 @@ export default {
           image:
             "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
           stateImage: okSvg,
-          backImage: bgImg,
+          backImage: bgImg2,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]]
         },
-        {
-          name: "双输出节点",
-          label: "双输出节点",
-          size: "170*34",
-          type: "node",
-          x: 0,
-          y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
-          stateImage: okSvg,
-          inPoints: [[0, 0.5]],
-          outPoints: [[1, 0.4], [1, 0.6]]
-        },
-        {
-          name: "大型节点",
-          label: "大型节点",
-          size: "340*34",
-          type: "node",
-          x: 0,
-          y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
-          stateImage: okSvg,
-          inPoints: [[0, 0.5]],
-          outPoints: [[1, 0.5]]
-        },
-        {
-          name: "动画开始节点",
-          label: "动画开始",
-          size: "170*34",
-          type: "node",
-          x: 0,
-          y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
-          stateImage: okSvg,
-          inPoints: [[0, 0.5]],
-          outPoints: [[1, 0.5]],
-          isDoingStart: true
-        },
-        {
-          name: "动画结束节点",
-          label: "动画结束",
-          size: "170*34",
-          type: "node",
-          x: 0,
-          y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
-          stateImage: okSvg,
-          inPoints: [[0, 0.5]],
-          outPoints: [[1, 0.5]],
-          isDoingEnd: true
-        }
       ]
+      // list: [
+      //   {
+      //     name: "测试节点",
+      //     label: "测试节点",
+      //     size: "170*34",
+      //     type: "node",
+      //     x: 0,
+      //     y: 0,
+      //     shape: "customNode",
+      //     color: "red",
+      //     image:
+      //       "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+      //     stateImage: okSvg,
+      //     inPoints: [[0, 0.5]],
+      //     outPoints: [[1, 0.5]]
+      //   },
+
+      //   {
+      //     name: "背景图片节点",
+      //     label: "背景图片节点",
+      //     size: "170*60",
+      //     type: "node",
+      //     x: 0,
+      //     y: 0,
+      //     shape: "customNode",
+      //     color: "red",
+      //     image:
+      //       "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+      //     stateImage: okSvg,
+      //     backImage: bgImg,
+      //     inPoints: [[0, 0.5]],
+      //     outPoints: [[1, 0.5]]
+      //   },
+      //   {
+      //     name: "双输出节点",
+      //     label: "双输出节点",
+      //     size: "170*34",
+      //     type: "node",
+      //     x: 0,
+      //     y: 0,
+      //     shape: "customNode",
+      //     color: "#1890ff",
+      //     image:
+      //       "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+      //     stateImage: okSvg,
+      //     inPoints: [[0, 0.5]],
+      //     outPoints: [[1, 0.4], [1, 0.6]]
+      //   },
+      //   {
+      //     name: "大型节点",
+      //     label: "大型节点",
+      //     size: "340*34",
+      //     type: "node",
+      //     x: 0,
+      //     y: 0,
+      //     shape: "customNode",
+      //     color: "#1890ff",
+      //     image:
+      //       "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+      //     stateImage: okSvg,
+      //     inPoints: [[0, 0.5]],
+      //     outPoints: [[1, 0.5]]
+      //   },
+      //   {
+      //     name: "动画开始节点",
+      //     label: "动画开始",
+      //     size: "170*34",
+      //     type: "node",
+      //     x: 0,
+      //     y: 0,
+      //     shape: "customNode",
+      //     color: "#1890ff",
+      //     image:
+      //       "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+      //     stateImage: okSvg,
+      //     inPoints: [[0, 0.5]],
+      //     outPoints: [[1, 0.5]],
+      //     isDoingStart: true
+      //   },
+      //   {
+      //     name: "动画结束节点",
+      //     label: "动画结束",
+      //     size: "170*34",
+      //     type: "node",
+      //     x: 0,
+      //     y: 0,
+      //     shape: "customNode",
+      //     color: "#1890ff",
+      //     image:
+      //       "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+      //     stateImage: okSvg,
+      //     inPoints: [[0, 0.5]],
+      //     outPoints: [[1, 0.5]],
+      //     isDoingEnd: true
+      //   }
+      // ]
     };
   },
   created() {
@@ -173,21 +208,23 @@ export default {
 }
 .itempannel ul {
   padding: 0px;
-  padding-left: 16px;
+  margin: 0;
 }
 .itempannel li {
   color: rgba(0, 0, 0, 0.65);
-  border-radius: 4px;
-  width: 160px;
-  height: 28px;
-  line-height: 26px;
-  padding-left: 8px;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
   border: 1px solid rgba(0, 0, 0, 0);
   list-style-type: none;
+  margin: 10px;
+  box-sizing: border-box;
+}
+.itempannel li img{
+  width:100%;
+  height: 100%;
 }
 .itempannel li:hover {
-  background: white;
-  border: 1px solid #ced4d9;
   cursor: move;
 }
 
@@ -198,4 +235,5 @@ export default {
   vertical-align: middle;
   margin-right: 8px;
 }
+
 </style>
