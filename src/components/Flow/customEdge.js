@@ -20,6 +20,12 @@ const customEdge = {
     const interval = 9;
     G6.registerEdge('customEdge', {
       draw(cfg, group) {
+
+        const deviationX = Math.abs(cfg.endPoint.x-cfg.startPoint.x)
+        const deviationY = Math.abs(cfg.endPoint.y-cfg.startPoint.y)
+        console.log(deviationX);
+        console.log(deviationY);
+        console.log(group);
         let sourceNode, targetNode, start, end
         if (typeof (cfg.source) === 'string') {
           cfg.source = cfg.sourceNode
@@ -104,6 +110,15 @@ const customEdge = {
           ['A', radius, radius, 0, 0, 1, -width, halfHeight],
           ['Z']
         ];
+
+        const startArrowPath = [
+          ['M', -width-10, halfHeight+10],
+          ['L', 0, 0],
+          ['L', -width, -halfHeight],
+          ['A', radius, radius, 0, 0, 1, -width, halfHeight],
+          ['Z']
+        ];
+        console.log(startArrowPath);
         const keyShape = group.addShape('path', {
           attrs: {
             id: 'edge' + uniqueId(),
@@ -112,6 +127,9 @@ const customEdge = {
             lineAppendWidth: 10,
             endArrow: {
               path: endArrowPath,
+            },
+            startArrow:{
+              path: startArrowPath,
             }
           }
         });

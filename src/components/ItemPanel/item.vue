@@ -58,7 +58,7 @@ export default {
           image:
             "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
           stateImage: okSvg,
-          backImage: bgImg2,
+          backImage: bgImg1,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]]
         },

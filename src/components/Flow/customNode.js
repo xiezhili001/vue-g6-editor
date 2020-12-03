@@ -101,14 +101,17 @@ const customNode = {
           for (let i = 0; i < cfg.inPoints.length; i++) {
             let x,
               y = 0;
-            //0为顶 1为底
+            // 0为顶 1为底
             if (cfg.inPoints[i][0] === 0) {
               y = 0;
             } else {
               y = height;
             }
             x = width * cfg.inPoints[i][1];
+            // y = height * cfg.inPoints[i][1];
             const id = 'circle' + uniqueId()
+            console.log(x + offsetX);
+            console.log(y + offsetY);
             group.addShape("circle", {
               attrs: {
                 id: 'circle' + uniqueId(),
@@ -139,12 +142,13 @@ const customNode = {
           for (let i = 0; i < cfg.outPoints.length; i++) {
             let x,
               y = 0;
-            //0为顶 1为底
+            // 0为顶 1为底s
             if (cfg.outPoints[i][0] === 0) {
               y = 0;
             } else {
               y = height;
             }
+            // y = height * cfg.inPoints[i][1];
             x = width * cfg.outPoints[i][1];
             const id = 'circle' + uniqueId()
             group.addShape("circle", {
@@ -201,7 +205,8 @@ const customNode = {
         };
         const unSelectStyles = () => {
           shape.attr("fill", "#fff");
-          shape.attr("stroke", "#ced4d9");
+          // shape.attr("stroke", "red");
+          shape.attr("stroke", "");
           circles.forEach(circle => {
             circle.attr('opacity', 0)
           })
