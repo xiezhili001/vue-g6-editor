@@ -50,7 +50,7 @@ export default {
                         targetId: item._cfg.id,
                         start: startPoint,
                         end: endPoint,
-                        shape: window.currentLine,
+                        shape: window.currentLine||'customEdge',
                         type: 'edge'
                     }
                     eventBus.$emit('addItem', model)
@@ -133,8 +133,9 @@ export default {
         if (item && item.getType() === 'node') {
             if (e.target._attrs.isInPointOut && !this.hasTran) {
                 this.hasTran = true
+                console.log(this);
                 e.target.transform([
-                    ['t', 0, 3],
+                    ['t', 0, 7],
                     ['s', 1.2, 1.2],
                 ])
             }
