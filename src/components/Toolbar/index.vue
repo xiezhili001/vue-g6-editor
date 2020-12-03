@@ -1,10 +1,5 @@
 <template>
   <div class="toolbar">
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="//at.alicdn.com/t/font_598462_3xve1872wizzolxr.css"
-    />
     <i
       class="command iconfont icon-undo"
       title="撤销"
@@ -68,7 +63,6 @@
       @click="handleToFront"
     ></i>
     <span class="separator"></span>
-    <span class="separator"></span>
     <i
       data-command="multiSelect"
       class="command iconfont icon-select"
@@ -84,7 +78,11 @@
       @click="handleAddGroup"
     ></i>
     <i data-command="unGroup" class="command iconfont icon-ungroup disable" title="解组"></i>
-    <el-button @click="saveData" type="primary" size="mini">保存</el-button>
+    <span class="separator"></span>
+    <i :class="['command', 'iconfont', 'iconxian', currentLine=='customEdge'?'':'disable']" title="线" @click="setCurrentLine('customEdge')"></i>
+    <i :class="['command', 'iconfont', 'iconxuxian1', currentLine=='dottedLine'?'':'disable']" title="虚线" @click="setCurrentLine('dottedLine')"></i>
+    <i :class="['command', 'iconfont', 'iconbottom-copy',currentLine=='customEdgeWithArrow'?'':'disable']" title="箭头" @click="setCurrentLine('customEdgeWithArrow')"></i>
+    <el-button @click="saveData" type="primary" size="mini" style="float:right;margin-right:20px">保存</el-button>
   </div>
 </template>
 
@@ -103,7 +101,8 @@ export default {
       command: null,
       selectedItem: null,
       multiSelect: false,
-      addGroup: false
+      addGroup: false,
+      currentLine:'customEdge'
     };
   },
   created() {
@@ -124,6 +123,10 @@ export default {
       const { editor, command } = this.$parent;
       this.editor = editor;
       this.command = command;
+    },
+    setCurrentLine(line) {
+      window.currentLine = line;
+      this.currentLine = line;
     },
     bindEvent() {
       let self = this;
@@ -312,6 +315,8 @@ export default {
 
 
 <style scoped>
+@import './index.css' ;
+@import '//at.alicdn.com/t/font_2245840_dkxck3f6ofu.css' ;
 .toolbar {
   box-sizing: border-box;
   padding: 8px 0px;
@@ -330,6 +335,7 @@ export default {
   width: 27px;
   height: 27px;
   margin: 0px 6px;
+  line-height: 24px;
   border-radius: 2px;
   padding-left: 4px;
   display: inline-block;

@@ -50,7 +50,7 @@ export default {
                         targetId: item._cfg.id,
                         start: startPoint,
                         end: endPoint,
-                        shape: 'customEdge',
+                        shape: window.currentLine,
                         type: 'edge'
                     }
                     eventBus.$emit('addItem', model)
